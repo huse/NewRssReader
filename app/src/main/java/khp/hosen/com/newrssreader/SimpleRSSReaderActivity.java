@@ -36,8 +36,8 @@ public class SimpleRSSReaderActivity extends ListActivity {
         links = new ArrayList();
 
         try {
-            URL url = new URL("http://feeds.pcworld.com/pcworld/latestnews");
-
+            //URL url = new URL("http://feeds.pcworld.com/pcworld/latestnews");
+            URL url = new URL("http://feeds2.feedburner.com/androidcentral?format=xml");
             XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
             factory.setNamespaceAware(false);
             XmlPullParser xpp = factory.newPullParser();
@@ -99,7 +99,7 @@ public class SimpleRSSReaderActivity extends ListActivity {
     }
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        Uri uri = Uri.parse(links.get(position));
+        Uri uri = Uri.parse(links.get(position).toString());
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
